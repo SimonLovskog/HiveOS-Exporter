@@ -20,24 +20,24 @@ env:
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.7, 3.8, 3.9]
+  #test:
+  #  runs-on: ubuntu-latest
+  #  strategy:
+  #    matrix:
+  #      python-version: [3.7, 3.8, 3.9]
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Set up Python ${{ matrix.python-version }}
+  #     uses: actions/setup-python@v2
+  #      with:
+  #        python-version: ${{ matrix.python-version }}
 
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
     # Ensure test job passes before pushing image.
-    needs: test
+    #needs: test
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
